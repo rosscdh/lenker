@@ -5,7 +5,7 @@
 
   /* GLYNT_TOGGLE PUBLIC CLASS DEFINITION
    * ================================= */
-        var GlyntToggle = function (options) {
+        var LenkerToggle = function (options) {
             this.options = $.extend({
                 in_admin: false
             }, options)
@@ -19,8 +19,8 @@
             this.init();
             this.listen();
         }
-        GlyntToggle.prototype = {
-            constructor: GlyntToggle
+        LenkerToggle.prototype = {
+            constructor: LenkerToggle
             ,init: function () {
                 self = this;
                 self.$button = self.$container.find('button.toggle_state:first');
@@ -46,7 +46,7 @@
         }
     /* GLYNT_INCREMENTOR PUBLIC CLASS DEFINITION
      * ================================= */
-        var GlyntIncrementor = function (options) {
+        var LenkerIncrementor = function (options) {
             this.options = $.extend({
                 in_admin: false
             }, options)
@@ -57,8 +57,8 @@
             this.init();
             this.listen();
         }
-        GlyntIncrementor.prototype = {
-            constructor: GlyntIncrementor
+        LenkerIncrementor.prototype = {
+            constructor: LenkerIncrementor
             ,init: function () {
                 self = this;
                 this.$button = this.$container.find('button.incrementor:first');
@@ -82,7 +82,7 @@
 
   /* GLYNT_PROGRESS PUBLIC CLASS DEFINITION
    * ================================= */
-    var GlyntProgress = function (options) {
+    var LenkerProgress = function (options) {
         this.options = $.extend({
             in_admin: false
         }, options)
@@ -93,8 +93,8 @@
         this.listen()
         this.render()
     }
-   GlyntProgress.prototype = {
-     constructor: GlyntProgress
+   LenkerProgress.prototype = {
+     constructor: LenkerProgress
      ,init: function () {
          var self = this;
 
@@ -232,7 +232,7 @@
            delete self.options.items.help
 
            var options = $.extend({}, self.options);
-           self.app.context.progress = new GlyntProgress(options);
+           self.app.context.progress = new LenkerProgress(options);
        }
    });
 
@@ -367,7 +367,7 @@
               ,showAlways: true
           });
 
-          // GlyntTypeAhead
+          // LenkerTypeAhead
           if (self.$element.hasClass('doc_choice') === false) {// only if were NOT looking at a choice element
               self.$element.glynt_typeahead({
                   source: ['something','you typed','before']
@@ -602,14 +602,14 @@
 
             // listen for "incrementor" functionality
             if (self.can_increment === true) {
-                // create new GlyntIncrementor
-                self.incrementor = new GlyntIncrementor({select_element: self})
+                // create new LenkerIncrementor
+                self.incrementor = new LenkerIncrementor({select_element: self})
             }
 
             // listen for "can_toggle" functionality
             if (self.can_toggle === true) {
                 // create new GyntToggle
-                self.toggle = new GlyntToggle({select_element: self})
+                self.toggle = new LenkerToggle({select_element: self})
             }
 
         }
@@ -689,7 +689,7 @@
  /* GLYNT_TYPEAHEAD PUBLIC CLASS DEFINITION
   * ================================= */
 
-  var GlyntTypeahead = function (element, options) {
+  var LenkerTypeahead = function (element, options) {
     this.$element = $(element)
     this.options = $.extend({}, $.fn.glynt_typeahead.defaults, options)
     this.matcher = this.options.matcher || this.matcher
@@ -702,9 +702,9 @@
     this.listen()
   }
 
-  GlyntTypeahead.prototype = {
+  LenkerTypeahead.prototype = {
 
-    constructor: GlyntTypeahead
+    constructor: LenkerTypeahead
 
   , select: function () {
       var val = this.$menu.find('.active').attr('data-value')
@@ -944,7 +944,7 @@
       var $this = $(this)
         , data = $this.data('glynt_typeahead')
         , options = typeof option == 'object' && option
-      if (!data) $this.data('glynt_typeahead', (data = new GlyntTypeahead(this, options)))
+      if (!data) $this.data('glynt_typeahead', (data = new LenkerTypeahead(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
@@ -957,7 +957,7 @@
   , minLength: 1
   }
 
-  $.fn.glynt_typeahead.Constructor = GlyntTypeahead
+  $.fn.glynt_typeahead.Constructor = LenkerTypeahead
 
 
  /*   GLYNTTYPEAHEAD DATA-API
